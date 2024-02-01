@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Herodia est le serveur PvP/Faction Farm2Win de référence depuis 2019 ! Rejoignez une communauté soudée sur un serveur stable avec un gameplay inédit, des mises à jour régulières et du combat en continu">
+    <meta name="theme-color" content="#fcd037">
+    <meta name="author" content="North">
+
+    <meta property="og:title" content="Vote">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://herodia.fr/vote">
+    <meta property="og:image" content="https://herodia.fr/storage/img/fav.png">
+    <meta property="og:description" content="Herodia est le serveur PvP/Faction Farm2Win de référence depuis 2019 ! Rejoignez une communauté soudée sur un serveur stable avec un gameplay inédit, des mises à jour régulières et du combat en continu">
+    <meta property="og:site_name" content="Herodia">
+        <meta name="keywords" content="faction, minecraft, pvpfaction, herodia, serveur minecraft">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="eDSC5VHX0giChkuzeTYwFmWTxuCyW0cEbihI723Q">
+
+    <title>Vote | Herodia</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://herodia.fr/storage/img/fav.png">
+
+    <!-- Scripts -->
+    <script src="https://herodia.fr/assets/vendor/bootstrap/js/bootstrap.bundle.min.js?v1.0.15" defer></script>
+    <script src="https://herodia.fr/assets/vendor/axios/axios.min.js?v1.0.15" defer></script>
+    <script src="https://herodia.fr/assets/js/script.js?v1.0.15" defer></script>
+    <script src="https://herodia.fr/assets/themes/herodia/js/jquery-1.11.0.js?v1.0.15"></script>
+
+    <!-- Page level scripts -->
+                <script src="https://ipv6-adapter.com/api/v1/api.js" async defer></script>
+    
+    <script src="https://herodia.fr/assets/plugins/vote/js/vote.js?v1.0.15" defer></script>
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Styles -->
+    <style type="text/css">
+        :root{
+            --main-color:  #fcd037;
+            --main-color-95:  #fcd03795;
+        }
+        i{
+            vertical-align: text-bottom;
+        }
+    </style>
+    <link href="https://herodia.fr/assets/vendor/bootstrap/css/bootstrap.min.css?v1.0.15" rel="stylesheet">
+    <link href="https://herodia.fr/assets/themes/herodia/css/style.css?v1.0.15" rel="stylesheet">
+        <style>
+        #vote-card .spinner-parent {
+            display: none;
+        }
+
+        #vote-card.voting .spinner-parent {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(70, 70, 70, 0.6);
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="navigation">
+    <div class="navigation-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 phone-hide" align="center">
+                    <strong class="bdg">
+                    <i class="bi bi-person"></i> <span class="playercount">0</span>
+                </strong> joueurs <strong>en ligne</strong>
+                </div>
+                <div class="col-md-6" align="center">
+                    <span class="right">
+                                                    <a href="/user/login" class="bdg bdg-large" style="margin-right:10px;"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                            <a href="/user/register" class="bdg bdg-large"><i class="bi bi-person-plus"></i> Inscription</a>
+                                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-links phone-hide">
+                                        <a class=" " href="https://herodia.fr" >
+                        <i class="bi bi-house-fill"></i> Accueil
+                    </a>
+                                                    <a class="  active " href="https://herodia.fr/vote" >
+                        <i class="bi bi-gift-fill"></i> Vote
+                    </a>
+                                                    <a class=" " href="https://herodia.fr/shop" >
+                        <i class="bi bi-cart-fill"></i> Boutique
+                    </a>
+                                                    <a class=" " href="https://discord.gg/Frkjr3fDPg"  target="_blank" rel="noopener" >
+                        <i class="bi bi-discord"></i> Discord
+                    </a>
+                        </div>
+    <div class="navigation-links computer-hide">
+        <span onclick="showMenu()"><i class="bi bi-list"></i></span>
+        <div id="menuPhone" class="phone-hide">
+                                                <li class="nav-item">
+                        <a class="nav-link " href="https://herodia.fr" >
+                            <i class="bi bi-house-fill"></i> Accueil
+                        </a>
+                    </li>
+                                                                <li class="nav-item">
+                        <a class="nav-link  active " href="https://herodia.fr/vote" >
+                            <i class="bi bi-gift-fill"></i> Vote
+                        </a>
+                    </li>
+                                                                <li class="nav-item">
+                        <a class="nav-link " href="https://herodia.fr/shop" >
+                            <i class="bi bi-cart-fill"></i> Boutique
+                        </a>
+                    </li>
+                                                                <li class="nav-item">
+                        <a class="nav-link " href="https://discord.gg/Frkjr3fDPg"  target="_blank" rel="noopener" >
+                            <i class="bi bi-discord"></i> Discord
+                        </a>
+                    </li>
+                                    </div>
+    </div>
+</div>
+<div class="background" style="background-image: url(https://cdn.discordapp.com/attachments/930061983573741588/1048952199172063264/Warzone.png)">
+    <div id="background"></div>
+    <img class="fadeIn" src="https://cdn.discordapp.com/attachments/900436444198338650/1005545874702729276/logo_grand.png">
+    <div class="filter"></div>
+    <div class="custom-shape-divider-bottom-1662665215" id="content">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</div>        </header>
+
+        <div class="app" >    <main class="container content">
+        <div id="status-message"></div>
+
+            
+
+    <h1>Voter</h1>
+
+            <div class="alert alert-primary" style="background-color: #3498DB; color: white" role="alert">
+            <i class="bi bi-gift-fill"></i> Bonus en cours jusqu'au 15 Fevrier ! Tous les votes donneront <b>le double de leur récompense</b> !
+        </div>
+    
+    <div class="card mb-4">
+        <div class="card-body text-center position-relative" id="vote-card">
+            <div class="spinner-parent h-100">
+                <div class="spinner-border text-white" role="status"></div>
+            </div>
+
+            <div class="" data-vote-step="1">
+                <form class="row justify-content-center" action="https://herodia.fr/vote/user" id="voteNameForm">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="mb-3">
+                            <input type="text" id="stepNameInput" name="name" class="form-control"
+                                   value=""
+                                   placeholder="Nom" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Continuer
+                            <span class="d-none spinner-border spinner-border-sm load-spinner" role="status"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class=" d-none  h-100" data-vote-step="2">
+                                    <a class="btn btn-primary" href="https://serveur-prive.net/minecraft/herodia/vote" target="_blank" rel="noopener noreferrer"
+                       data-vote-id="1"
+                       data-vote-url="https://herodia.fr/vote/site/1"
+                       >
+                        <span class="badge bg-secondary text-white vote-timer"></span> Site n°1
+                    </a>
+                                    <a class="btn btn-primary" href="https://top-serveurs.net/minecraft/vote/herodia-lolympe-du-pvpfaction-farm2win-crack-on" target="_blank" rel="noopener noreferrer"
+                       data-vote-id="2"
+                       data-vote-url="https://herodia.fr/vote/site/2"
+                       >
+                        <span class="badge bg-secondary text-white vote-timer"></span> Site n°2
+                    </a>
+                            </div>
+
+            <div class="d-none" data-vote-step="3">
+                <p id="vote-result"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                Classement
+            </h2>
+
+            <table class="table mb-0">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Récompense</th>
+                    <th scope="col">Votes</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#1</span></th>
+                                                    <td><img src="https://minotar.net/avatar/NaZsPy" width="25px" class="avatar">NaZsPy</td>
+                                                <td><span class="reward">3000 Crédits</span></td>
+                        <td><b>22</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#2</span></th>
+                                                    <td><img src="https://minotar.net/avatar/ShaiZey_" width="25px" class="avatar">ShaiZey_</td>
+                                                <td><span class="reward">2000 Crédits</span></td>
+                        <td><b>21</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#3</span></th>
+                                                    <td><img src="https://minotar.net/avatar/OLK1" width="25px" class="avatar">OLK1</td>
+                                                <td><span class="reward">1500 Crédits</span></td>
+                        <td><b>19</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#4</span></th>
+                                                    <td><img src="https://minotar.net/avatar/Sam100grammes" width="25px" class="avatar">Sam100grammes</td>
+                                                <td><span class="reward">1000 Crédits</span></td>
+                        <td><b>18</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#5</span></th>
+                                                    <td><img src="https://minotar.net/avatar/HFukuda" width="25px" class="avatar">HFukuda</td>
+                                                <td><span class="reward">800 Crédits</span></td>
+                        <td><b>18</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#6</span></th>
+                                                    <td><img src="https://minotar.net/avatar/Intracito" width="25px" class="avatar">Intracito</td>
+                                                <td><span class="reward">600 Crédits</span></td>
+                        <td><b>17</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#7</span></th>
+                                                    <td><img src="https://minotar.net/avatar/valeurs_sur" width="25px" class="avatar">valeurs_sur</td>
+                                                <td><span class="reward">500 Crédits</span></td>
+                        <td><b>17</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#8</span></th>
+                                                    <td><img src="https://minotar.net/avatar/Gunel" width="25px" class="avatar">Gunel</td>
+                                                <td><span class="reward">300 Crédits</span></td>
+                        <td><b>17</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#9</span></th>
+                                                    <td><img src="https://minotar.net/avatar/Weikoo" width="25px" class="avatar">Weikoo</td>
+                                                <td><span class="reward">300 Crédits</span></td>
+                        <td><b>16</b> votes</td>
+                    </tr>
+                
+                    <tr class="toSlideInRightLess toAnimate" >
+                        <th scope="row"><span class="index">#10</span></th>
+                                                    <td><img src="https://minotar.net/avatar/zAkAmZz" width="25px" class="avatar">zAkAmZz</td>
+                                                <td><span class="reward">300 Crédits</span></td>
+                        <td><b>15</b> votes</td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>  
+    </div>
+<script type="text/javascript">
+$("tr").each(function (index ) {
+   $(this).css('animation-delay',index *0.1 +'s');
+});  
+</script>
+
+
+    </main>
+</div>
+
+        <div class="banner" style="background-image: url(https://cdn.discordapp.com/attachments/930061983573741588/1048952199172063264/Warzone.png)">
+            <div class="filter" align="center">
+                <span>Rejoins les <span class="playercount">0</span> joueurs connectés sur <span class='ip' onclick="copyToClipboard('.ip')"> play.herodia.fr</span> !</span>
+            </div>
+        </div>
+    </div>
+    
+<footer class="text-white py-4 text-center">
+    <div class="copyright">
+        Copyright © 2023 Azuriom - Tous droits réservés. | <a href="/cgu">CGU</a> | <a href="/cgv">CGV</a> | Propulsé par <a href="https://azuriom.com" target="_blank" rel="noopener noreferrer">Azuriom</a>.    </div>
+</footer>
+
+<script type="text/javascript">
+    
+window.onscroll = function() {brightness()};
+
+function brightness() {
+  const scrollRate = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0)/(window.innerHeight*1.25);
+  document.getElementById("background").style.backgroundColor = "rgba(0,0,0," + scrollRate + ")";
+}
+
+function isOnScreen(elem) {
+    if( elem.length == 0 ) return;
+    
+    var $window = jQuery(window)
+    var viewport_top = $window.scrollTop()
+    var viewport_height = $window.height()
+    var viewport_bottom = viewport_top + viewport_height
+    var $elem = jQuery(elem)
+    var top = $elem.offset().top
+    var height = $elem.height()
+    var bottom = top + height
+
+    return (top >= viewport_top && top < viewport_bottom) ||
+    (bottom > viewport_top && bottom <= viewport_bottom) ||
+    (height > viewport_height && top <= viewport_top && bottom >= viewport_bottom)
+}
+
+$(window).scroll(function () {
+    $('.toAnimate').each(function () {
+        if (isOnScreen($(this))) $(this).addClass("animate");
+    });
+});
+
+function showMenu() {
+  document.getElementById("menuPhone").classList.toggle("phone-hide");
+}
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    $('html, body').animate({
+        scrollTop: ($('#content').offset().top - 100)
+    }, 'slow');
+});
+</script>
+
+<script src="https://herodia.fr/assets/themes/herodia/js/jquery-1.11.0.js?v1.0.15"></script>
+<script type="text/javascript" defer>
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        $(element).text("Adresse copiée");
+        setTimeout(function(){
+            $(element).text("play.herodia.fr");
+        }, 2500);
+    }
+
+    $.get('https://eu.mc-api.net/v3/server/ping/play.herodia.fr', function(a){
+      $('.playercount').html(a.players.online);
+    });
+
+    $.get('https://canary.discord.com/api/guilds/616215642114228225/widget.json', function(b){
+      $('.discordcount').html(b.presence_count);
+    });
+</script>
+
+
+</body>
+</html>

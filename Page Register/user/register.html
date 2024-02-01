@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Herodia est le serveur PvP/Faction Farm2Win de référence depuis 2019 ! Rejoignez une communauté soudée sur un serveur stable avec un gameplay inédit, des mises à jour régulières et du combat en continu">
+    <meta name="theme-color" content="#fcd037">
+    <meta name="author" content="North">
+
+    <meta property="og:title" content="Inscription">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://herodia.fr/user/register">
+    <meta property="og:image" content="https://herodia.fr/storage/img/fav.png">
+    <meta property="og:description" content="Herodia est le serveur PvP/Faction Farm2Win de référence depuis 2019 ! Rejoignez une communauté soudée sur un serveur stable avec un gameplay inédit, des mises à jour régulières et du combat en continu">
+    <meta property="og:site_name" content="Herodia">
+        <meta name="keywords" content="faction, minecraft, pvpfaction, herodia, serveur minecraft">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="EenmjAbfiuLXirGteMtUDQ33wv76qxKl4gt73Xrc">
+
+    <title>Inscription | Herodia</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://herodia.fr/storage/img/fav.png">
+
+    <!-- Scripts -->
+    <script src="https://herodia.fr/assets/vendor/bootstrap/js/bootstrap.bundle.min.js?v1.0.15" defer></script>
+    <script src="https://herodia.fr/assets/vendor/axios/axios.min.js?v1.0.15" defer></script>
+    <script src="https://herodia.fr/assets/js/script.js?v1.0.15" defer></script>
+    <script src="https://herodia.fr/assets/themes/herodia/js/jquery-1.11.0.js?v1.0.15"></script>
+
+    <!-- Page level scripts -->
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Styles -->
+    <style type="text/css">
+        :root{
+            --main-color:  #fcd037;
+            --main-color-95:  #fcd03795;
+        }
+        i{
+            vertical-align: text-bottom;
+        }
+    </style>
+    <link href="https://herodia.fr/assets/vendor/bootstrap/css/bootstrap.min.css?v1.0.15" rel="stylesheet">
+    <link href="https://herodia.fr/assets/themes/herodia/css/style.css?v1.0.15" rel="stylesheet">
+    </head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="navigation">
+    <div class="navigation-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 phone-hide" align="center">
+                    <strong class="bdg">
+                    <i class="bi bi-person"></i> <span class="playercount">0</span>
+                </strong> joueurs <strong>en ligne</strong>
+                </div>
+                <div class="col-md-6" align="center">
+                    <span class="right">
+                                                    <a href="/user/login" class="bdg bdg-large" style="margin-right:10px;"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                            <a href="/user/register" class="bdg bdg-large"><i class="bi bi-person-plus"></i> Inscription</a>
+                                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-links phone-hide">
+                                        <a class=" " href="https://herodia.fr" >
+                        <i class="bi bi-house-fill"></i> Accueil
+                    </a>
+                                                    <a class=" " href="https://herodia.fr/vote" >
+                        <i class="bi bi-gift-fill"></i> Vote
+                    </a>
+                                                    <a class=" " href="https://herodia.fr/shop" >
+                        <i class="bi bi-cart-fill"></i> Boutique
+                    </a>
+                                                    <a class=" " href="https://discord.gg/Frkjr3fDPg"  target="_blank" rel="noopener" >
+                        <i class="bi bi-discord"></i> Discord
+                    </a>
+                        </div>
+    <div class="navigation-links computer-hide">
+        <span onclick="showMenu()"><i class="bi bi-list"></i></span>
+        <div id="menuPhone" class="phone-hide">
+                                                <li class="nav-item">
+                        <a class="nav-link " href="https://herodia.fr" >
+                            <i class="bi bi-house-fill"></i> Accueil
+                        </a>
+                    </li>
+                                                                <li class="nav-item">
+                        <a class="nav-link " href="https://herodia.fr/vote" >
+                            <i class="bi bi-gift-fill"></i> Vote
+                        </a>
+                    </li>
+                                                                <li class="nav-item">
+                        <a class="nav-link " href="https://herodia.fr/shop" >
+                            <i class="bi bi-cart-fill"></i> Boutique
+                        </a>
+                    </li>
+                                                                <li class="nav-item">
+                        <a class="nav-link " href="https://discord.gg/Frkjr3fDPg"  target="_blank" rel="noopener" >
+                            <i class="bi bi-discord"></i> Discord
+                        </a>
+                    </li>
+                                    </div>
+    </div>
+</div>
+<div class="background" style="background-image: url(https://cdn.discordapp.com/attachments/930061983573741588/1048952199172063264/Warzone.png)">
+    <div id="background"></div>
+    <img class="fadeIn" src="https://cdn.discordapp.com/attachments/900436444198338650/1005545874702729276/logo_grand.png">
+    <div class="filter"></div>
+    <div class="custom-shape-divider-bottom-1662665215" id="content">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</div>        </header>
+
+        <div class="app" >    <main class="container content">
+        <div id="status-message"></div>
+
+        <div class="row justify-content-center">
+    <div class="col-md-9 col-lg-6">
+        <h1>Inscription</h1>
+        <br>
+        <form method="POST" action="https://herodia.fr/user/register" id="captcha-form">
+            <input type="hidden" name="_token" value="EenmjAbfiuLXirGteMtUDQ33wv76qxKl4gt73Xrc">
+            <div class="mb-3">
+                <div class="input-block">
+                <input id="name" type="text" class="" name="name" value="" placeholder=" " required autocomplete="name" autofocus>
+                    <span class="placeholder">
+                        Pseudo
+                    </span>
+                </div>
+
+                            </div>
+
+            <div class="mb-3">
+                <div class="input-block">
+                <input id="email" type="email" class="" name="email" placeholder=" " value="" required autocomplete="email">
+                    <span class="placeholder">
+                        Adresse Email 
+                    </span>
+                </div>
+
+                            </div>
+
+            <div class="mb-3">
+                <div class="input-block">
+                <input id="password" type="password" class="" placeholder=" " name="password" required autocomplete="new-password">
+                    <span class="placeholder">
+                        Mot de passe
+                    </span>
+                </div>
+
+                            </div>
+
+            <div class="mb-3">
+                <div class="input-block">
+                <input id="password-confirm" type="password" name="password_confirmation" placeholder=" " required autocomplete="new-password">
+                    <span class="placeholder">
+                        Confirmation du mot de passe
+                    </span>
+                </div>
+            </div>
+
+            
+            
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">
+                    Inscription
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+    </main>
+</div>
+
+        <div class="banner" style="background-image: url(https://cdn.discordapp.com/attachments/930061983573741588/1048952199172063264/Warzone.png)">
+            <div class="filter" align="center">
+                <span>Rejoins les <span class="playercount">0</span> joueurs connectés sur <span class='ip' onclick="copyToClipboard('.ip')"> play.herodia.fr</span> !</span>
+            </div>
+        </div>
+    </div>
+    
+<footer class="text-white py-4 text-center">
+    <div class="copyright">
+        Copyright © 2023 Azuriom - Tous droits réservés. | <a href="/cgu">CGU</a> | <a href="/cgv">CGV</a> | Propulsé par <a href="https://azuriom.com" target="_blank" rel="noopener noreferrer">Azuriom</a>.    </div>
+</footer>
+
+<script type="text/javascript">
+    
+window.onscroll = function() {brightness()};
+
+function brightness() {
+  const scrollRate = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0)/(window.innerHeight*1.25);
+  document.getElementById("background").style.backgroundColor = "rgba(0,0,0," + scrollRate + ")";
+}
+
+function isOnScreen(elem) {
+    if( elem.length == 0 ) return;
+    
+    var $window = jQuery(window)
+    var viewport_top = $window.scrollTop()
+    var viewport_height = $window.height()
+    var viewport_bottom = viewport_top + viewport_height
+    var $elem = jQuery(elem)
+    var top = $elem.offset().top
+    var height = $elem.height()
+    var bottom = top + height
+
+    return (top >= viewport_top && top < viewport_bottom) ||
+    (bottom > viewport_top && bottom <= viewport_bottom) ||
+    (height > viewport_height && top <= viewport_top && bottom >= viewport_bottom)
+}
+
+$(window).scroll(function () {
+    $('.toAnimate').each(function () {
+        if (isOnScreen($(this))) $(this).addClass("animate");
+    });
+});
+
+function showMenu() {
+  document.getElementById("menuPhone").classList.toggle("phone-hide");
+}
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    $('html, body').animate({
+        scrollTop: ($('#content').offset().top - 100)
+    }, 'slow');
+});
+</script>
+
+<script src="https://herodia.fr/assets/themes/herodia/js/jquery-1.11.0.js?v1.0.15"></script>
+<script type="text/javascript" defer>
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        $(element).text("Adresse copiée");
+        setTimeout(function(){
+            $(element).text("play.herodia.fr");
+        }, 2500);
+    }
+
+    $.get('https://eu.mc-api.net/v3/server/ping/play.herodia.fr', function(a){
+      $('.playercount').html(a.players.online);
+    });
+
+    $.get('https://canary.discord.com/api/guilds/616215642114228225/widget.json', function(b){
+      $('.discordcount').html(b.presence_count);
+    });
+</script>
+
+
+</body>
+</html>
